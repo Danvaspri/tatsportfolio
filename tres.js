@@ -9,20 +9,24 @@ const options = {
     },
     mode: "no-cors",
 };
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
-function tres() {
-    for (let i = 0; i < 1000000; i++) {
-        for (let j = 0; j < 1000000; j++) {
-            const req = https.request(options, (res) => {
-                console.log(`statusCode: ${res.statusCode}`);
-                res.on("data", () => {});
-            });
+async function tres() {
+    for (let j = 0; j < 345600; j++) {
+        await sleep(250);
+        console.log(j);
+        const req = https.request(options);
+        req.on("data", (d) => {
+            console.log(d);
+        });
 
-            req.on("error", (error) => {
-                console.error(error);
-            });
-            req.end();
-        }
+        req.on("error", (e) => {
+            console.log(e);
+        });
+        req.end();
     }
 }
+
 tres();

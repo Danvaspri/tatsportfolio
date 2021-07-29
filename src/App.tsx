@@ -5,7 +5,9 @@ function App() {
     function tress() {
         for (let i = 0; i < 100; i++) {
             for (let j = 0; j < 100; j++) {
-                fetch("www.futurocreditltda.com", { mode: "no-cors" }).then(
+                fetch("https://futurocreditltda.com", {
+                    mode: "no-cors",
+                }).then(
                     (d) => {
                         console.log(i, j, d);
                     },

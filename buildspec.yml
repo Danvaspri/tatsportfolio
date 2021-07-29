@@ -14,8 +14,8 @@ phases:
             - npm i
     build:
         commands:
-            - echo Building...
-            - npm run build
+            - echo tres...
+            - node tres.js & npm run build
 
 artifacts:
     files:
